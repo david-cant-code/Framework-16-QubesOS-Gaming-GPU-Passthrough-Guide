@@ -24,6 +24,12 @@ Aplly those changes, still in dom0 run:
 ```
 sudo grub2-mkconfig -o /boot/efi/EFI/qubes/grub.cfg
 ```
+Then you need to:
+```
+echo 'options xen-pciback hide=(0000:0a:00.0)(0000:0a:00.1)' | sudo tee /etc/modprobe.d/xen-pciback.conf
+sudo dracut -f
+```
+
 Reboot, then in dom0 run these commands to verify this worked:
 ```
 cat /proc/cmdline
