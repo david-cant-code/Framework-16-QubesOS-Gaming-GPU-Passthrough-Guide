@@ -67,6 +67,10 @@ BUT you will have to keep your mouse within the window of the HVM, it doesn't ca
 I am sure someone smarter than me will be able to do this in a better way, but for me, this works.
 Open up your qubes settings again, go to devices, and add the main USB controller to the settings. This must be done with the HVM shutoff. And you can't boot it up while sys-usb is active. Sounds lame, and it is because I stopped looking for a workaround when this worked. It works because your touchpad stays active, even with sys-usb shutoff, so you can use the qubes manager GUI to shutoff sys-usb, and then boot your gaming HVM. Once the HVM is running, it will own all USB ports and your monitor will look and feel like a bare metal install of Fedora, hotplugging USB and all. 
 
+Some downsides to doing it my lazy way:
+1: You will have no ability to type into dom0 at all, only the track pad
+2: If you let dom0 go to a lock screen, you'll have to reboot in order to get your keyboard back
+
 ## Step 5 - Install games, have fun
 
-Just do what you'd normally do to install steam or whatever you use.
+Just do what you'd normally do to install steam or whatever you use. 
