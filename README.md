@@ -1,5 +1,5 @@
 # Framework-16 QubesOS Gaming GPU Passthrough Guide
-A step by step guide to pass the 7700s GPU module on a Framework 16 laptop through to create a gaming HVM qube in QubesOS
+A step by step guide to pass the 7700s GPU module on a Framework 16 laptop through to create a gaming HVM qube in QubesOS. This will get updated more as time goes on and I feel like it, kind of rough but wanted to share since I have wanted to do this for a long time and finally figured it out, which was a pain because there are no clear guides on how to do this. Now there is.
 
 ## Step 1: Grub Modifications
 Before going too far, verify that your GPU has the same pcie ID as mine does, in dom0 run:
