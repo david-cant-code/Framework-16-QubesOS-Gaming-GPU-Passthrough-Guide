@@ -47,11 +47,15 @@ Create a qube, name it gaming, select standalone VM, and set the template to non
 
 Next, in the settings, change the RAM to whatever you can give it. Go to the devices tab and add the GPU and its audio device and hit apply.
 
-Later we will need to pass through a USB controller, but for now you can install the VM. Now plug your GPU into a monitor, it should do nothing because the GPU is not held by dom0. Download an iso, I used Fedora 42, verify the ISO, and then in the settings for your gaming HVM, select boot from device/cd, select the qube the iso you downloaded is in, then hit the three dots and a file picker will pop up. Then select the iso and boot the hvm.
+Later we will need to pass through a USB controller, but for now you can install the VM. Now plug your GPU into a monitor, it should do nothing because the GPU is not held by dom0. 
 
-This will then output video to a window on your laptop, as well as your external monitor. The external monitor will not have a qubes color barrier around it, it will look like a normal fedora installer.
+Download an iso, I used Fedora 42, verify the ISO, and then in the settings for your gaming HVM, select boot from device/cd in the Advanced tab, select the qube the iso you downloaded is in, then hit the three dots and a file picker will pop up. Then select the iso and boot the hvm.
+
+This will output video to a window on your laptop, as well as your external monitor. The external monitor will not have a qubes color barrier around it, it will look like a normal fedora installer.
 
 Install your OS and reboot.
+
+Once you have the HVM installed and running, the window will still pop up every time you run the qube, and inside the HVM that window is seen as a display, which can be shutoff in settigns like any other display. But the window stays on your laptop screen. In order to have your mouse work inside the gaming qube, you need to keep it within the window on your laptop's screen, then it shows on the external monitor also. This is why later we have to pass through a USB controller.
 
 ## Step 3 - Networking
 For whatever reason you will have to manually configure your network, but it is easy to do. On your qubes setting, you will see netowrk info, including an IP address, gateway, netmask, dns, etc. You will want to leave the net qube as sys-firewall default.
