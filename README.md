@@ -56,11 +56,16 @@ For whatever reason you will have to manually configure your network, but it is 
 
 In gnome settings, open up network settings, then click the gear icon on the wired connection. Disable ipv6, then go to the ipv4 section and change it to manual.
 
-Now you need to enter in the IP, netmask, and gateway. Then enter the two DNS addresses. It will now connect (assuming your qubesOS host is connected to the internet. 
+Now you need to enter in the IP, netmask, and gateway. Then enter the two DNS addresses. It will now connect (assuming your qubesOS host is connected to the internet. Mind that in the screenshot, those are my specific HVMs IP, it may be different on your system, but will be similar since that is how qubes assigns internal IPs.
+
+![Gnome Netowrk Settings Example](https://github.com/david-cant-code/Framework-16-QubesOS-Gaming-GPU-Passthrough-Guide/blob/main/Screenshot%20From%202025-08-17%2016-57-29.png)
+
 
 Now, from here you have a working HVM that has your GPU and can game. I am able to play Helldivers 2 with 5 vCPU passthrough, 24 GB RAM, and of course the GPU.
 
 BUT you will have to keep your mouse within the window of the HVM, it doesn't capture it, and you can't pass through a keyboard and mouse to the HVM like you normally would.
+
+
 
 ## Step 4 - USB Passthrough
 
