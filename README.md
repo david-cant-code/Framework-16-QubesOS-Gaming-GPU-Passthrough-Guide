@@ -81,8 +81,9 @@ Open up your qubes settings again, go to devices, and add the main USB controlle
 ![Devices Screenshot](https://github.com/david-cant-code/Framework-16-QubesOS-Gaming-GPU-Passthrough-Guide/blob/main/pictures/IMG_20250817_171405_531.jpg)
 
 Some downsides to doing it my lazy way:
-1: You will have no ability to type into dom0 at all, only the track pad
-2: If you let dom0 go to a lock screen, you'll have to reboot in order to get your keyboard back
+1: You will have no ability to type into dom0 at all, only the track pad, while the gaming HVM qube is booted up
+2: Sys-usb abd the gaming HVM can't be on at the same time
+3: If you let dom0 go to a lock screen, you'll have to reboot in order to get your keyboard back
 
 ## Step 5 - Install games, have fun
 
