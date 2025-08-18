@@ -22,7 +22,7 @@ Then to the "GRUB_CMDLINE_XEN_DEFAULT" line append:
 ```
 iommu=on
 ```
-Aplly those changes, still in dom0 run:
+Apply those changes, still in dom0 run:
 ```
 sudo grub2-mkconfig -o /boot/efi/EFI/qubes/grub.cfg
 ```
