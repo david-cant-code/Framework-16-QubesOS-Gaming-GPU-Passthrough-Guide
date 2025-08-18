@@ -63,9 +63,9 @@ Now you need to enter in the IP, netmask, and gateway. Then enter the two DNS ad
 
 Now, from here you have a working HVM that has your GPU and can game. I am able to play Helldivers 2 with 5 vCPU passthrough, 24 GB RAM, and of course the GPU.
 
+![NVTOP showing GPU info](https://github.com/david-cant-code/Framework-16-QubesOS-Gaming-GPU-Passthrough-Guide/blob/main/Screenshot%20From%202025-08-17%2016-27-11.png)
+
 BUT you will have to keep your mouse within the window of the HVM, it doesn't capture it, and you can't pass through a keyboard and mouse to the HVM like you normally would.
-
-
 
 ## Step 4 - USB Passthrough
 
