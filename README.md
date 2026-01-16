@@ -61,7 +61,7 @@ If you haven't already, plug in an external monitor to your GPU, the gaming qube
 
 Note on mouse capture: Until you pass through a usb controller, in order to get the mouse on the external monitor, you must hover over the window for the gaming qube on your laptop, whether you disabled it in your install or not. 
 
-Install your OS and reboot. I personally just use the drive it sees as the private storage you gave it, and I don't use the 10gb system storage 'disk' to avoid confusion, but you can use it if you want. I also do not encrypt the install to avoid the overhead since it is still residing on your qubes install, which is encrypted anyways.
+Install your OS and reboot.
 
 Once you have the HVM installed and running, the window will still pop up every time you run the qube, and inside the HVM that window is seen as a display, which can be shutoff in settigns like any other display. But the window stays on your laptop screen. In order to have your mouse work inside the gaming qube, you need to keep it within the window on your laptop's screen, then it shows on the external monitor also. This is why later we have to pass through a USB controller.
 
