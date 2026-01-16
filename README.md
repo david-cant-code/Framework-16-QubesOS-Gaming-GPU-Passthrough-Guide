@@ -53,7 +53,7 @@ Next, in the settings, change the RAM to whatever you can give it. Go to the dev
 
 Later we will need to pass through a USB controller, but for now you can install the VM. Now plug your GPU into a monitor, it should do nothing because the GPU is not held by dom0. 
 
-On the basic tab of the settings for your gaming HVM qube, increase the system storage size to at least 25GB (assuming a Fedora install), this is where your / partition will go. Then increase the private storage, its your call here on how much to give it, but remember the amount you give it will be the total size available for anything you download. I recommend installing assigning /home to the private storage.
+On the basic tab of the settings for your gaming HVM qube, increase the system storage size to at least 25GB (assuming a Fedora install), this is where your / partition will go. Then increase the private storage, its your call here on how much to give it, but remember the amount you give it will be the total size available for anything you download. I recommend installing assigning /home to the private storage. In a Fedora installer, the private storage shows up as xvdb and the system storage shows up as xvda.
 
 Download an iso, I used Fedora 42, verify the ISO, and then in the settings for your gaming HVM, select boot from device/cd in the Advanced tab, select the qube the iso you downloaded is in, then hit the three dots and a file picker will pop up. Then select the iso and boot the hvm.
 
