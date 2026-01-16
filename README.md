@@ -1,12 +1,13 @@
-# Framework-16 QubesOS Gaming GPU Passthrough Guide
-A step by step guide to pass the 7700s GPU module on a Framework 16 laptop through to create a gaming HVM qube in QubesOS. This will get updated more as time goes on and I feel like it, kind of rough but wanted to share since I have wanted to do this for a long time and finally figured it out, which was a pain because there are no clear guides on how to do this. Now there is, and you can play Helldivers on it :100:
+# Framework-16 QubesOS Gaming GPU Passthrough Guide - Verified to work on QUbes 4.3
+A step by step guide to pass the 7700s GPU module on a Framework 16 laptop through to create a gaming HVM qube in QubesOS. This should also work with the 5070 nvidia GPU they just released if you adjust the commands for the output of lspci. This will get updated more as time goes on and I feel like it, kind of rough but wanted to share since I have wanted to do this for a long time and finally figured it out, which was a pain because there are no clear guides on how to do this. Now there is, and you can play Helldivers on it :100:
 
 ![Democracy!!!](https://github.com/david-cant-code/Framework-16-QubesOS-Gaming-GPU-Passthrough-Guide/blob/main/pictures/smallerDemocracy.gif)
 
 ## Step 1: Grub Modifications
 Before going too far, verify that your GPU has the same pcie ID as mine does, in dom0 run:
 ```
-qvm-pci | grep -i vga
+lspci | grep -i vga
+lspci | grep -i audio
 ```
 As long as it shows as 03:00.0 for the GPU, and 03:00.1 for the audio controller, then you can follow exactly my commands, if not you'll need to substitute whatever it is in place
 
