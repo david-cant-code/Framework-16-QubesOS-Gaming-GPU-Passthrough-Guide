@@ -49,7 +49,7 @@ What you want to see is that the kernel driver in use is pciback. That means you
 Before Qubes 4.3: Create a qube, name it gaming, select standalone VM, and set the template to none and check to launch settings after creation.
 Qubes 4.3: this version of qubes has a new gui for creating qubes, ensure you select "standalone" in the column on the left and under "Clone from existing" select do not clone. On the bottom check you can leave "Install system from device" unchecked since it is available from the settings. The rest of the HVM creation is the same as prior to 4.3.
 
-Next, in the settings, change the RAM to whatever you can give it. Go to the devices tab and add the GPU and its audio device and hit apply.
+Next, in the settings, change the RAM to whatever you can give it. Go to the devices tab and add the GPU and its audio device and hit apply. Note, if it crashes here, you did not properly hide the GPU and/or audio device. You may note that in the device passthrough part of the qube setting it shows a different pcie address than what we used, you can ignor this and pass it through.
 
 Later we will need to pass through a USB controller, but for now you can install the VM. Now plug your GPU into a monitor, it should do nothing because the GPU is not held by dom0. 
 
