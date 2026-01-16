@@ -1,7 +1,7 @@
 # Framework-16 QubesOS Gaming GPU Passthrough Guide - Verified to work on Qubes 4.3
 A step by step guide to pass the 7700s GPU module on a Framework 16 laptop through to create a gaming HVM qube in QubesOS. This should also work with the 5070 nvidia GPU they just released if you adjust the commands for the output of lspci. This will get updated more as time goes on and I feel like it, kind of rough but wanted to share since I have wanted to do this for a long time and finally figured it out, which was a pain because there are no clear guides on how to do this. Now there is, and you can play Helldivers on it :100:
 
-As a side note, I have noticed slightly better battery life after doing this, I assume from excluding the GPU from dom0 resulting in only idle background usage unless running the gaming qube.
+As a side note, I have noticed slightly better battery life after doing this, I assume from excluding the GPU from dom0 resulting in only idle background usage unless running the gaming qube. For those of you into self hosting AI, you can also use this to run an ollama server (or other local LLM) on your laptop with some tinkering, since this gives you an OS running on bare metal with your GPU.
 
 ![Democracy!!!](https://github.com/david-cant-code/Framework-16-QubesOS-Gaming-GPU-Passthrough-Guide/blob/main/pictures/smallerDemocracy.gif)
 
@@ -49,15 +49,19 @@ What you want to see is that the kernel driver in use is pciback. That means you
 Before Qubes 4.3: Create a qube, name it gaming, select standalone VM, and set the template to none and check to launch settings after creation.
 Qubes 4.3: this version of qubes has a new gui for creating qubes, ensure you select "standalone" in the column on the left and under "Clone from existing" select do not clone. On the bottom check you can leave "Install system from device" unchecked since it is available from the settings. The rest of the HVM creation is the same as prior to 4.3.
 
-Next, in the settings, change the RAM to whatever you can give it. Go to the devices tab and add the GPU and its audio device and hit apply. Note, if it crashes here, you did not properly hide the GPU and/or audio device. You may note that in the device passthrough part of the qube setting it shows a different pcie address than what we used, you can ignor this and pass it through.
+Next, in the settings, change the RAM to whatever you can give it. Go to the devices tab and add the GPU and its audio device and hit apply. Note, if it crashes here, you did not properly hide the GPU and/or audio device. You may note that in the device passthrough part of the qube setting it shows a different pcie address than what we used, you can ignore this and pass it through.
 
 Later we will need to pass through a USB controller, but for now you can install the VM. Now plug your GPU into a monitor, it should do nothing because the GPU is not held by dom0. 
 
+On the basic tab of the settings for your gaming HVM qube, increase the private storage. Your call here on how much to give it, but remember the amount you give it will be the total size available for the OS and any games you download.
+
 Download an iso, I used Fedora 42, verify the ISO, and then in the settings for your gaming HVM, select boot from device/cd in the Advanced tab, select the qube the iso you downloaded is in, then hit the three dots and a file picker will pop up. Then select the iso and boot the hvm.
 
-This will output video to a window on your laptop, as well as your external monitor. The external monitor will not have a qubes color barrier around it, it will look like a normal fedora installer.
+If you haven't already, plug in an external monitor to your GPU, the gaming qube will be very slow if you use the windown on your laptop screen (I think its because its using the vCPU cores passed through to render). Once you boot the gaming qube, it will output video to a window on your laptop, as well as your external monitor. The external monitor will not have a qubes color barrier around it, it will look like a normal fedora installer. I recommend from within your installer, or once installed and booted into your gaming qube, disable the window that is on the laptop screen (it shows up as a monitor).
 
-Install your OS and reboot.
+Note on mouse capture: Until you pass through a usb controller, in order to get the mouse on the external monitor, you must hover over the window for the gaming qube on your laptop, whether you disabled it in your install or not. 
+
+Install your OS and reboot. I personally just use the drive it sees as the private storage you gave it, and I don't use the 10gb system storage 'disk' to avoid confusion, but you can use it if you want. I also do not encrypt the install to avoid the overhead since it is still residing on your qubes install, which is encrypted anyways.
 
 Once you have the HVM installed and running, the window will still pop up every time you run the qube, and inside the HVM that window is seen as a display, which can be shutoff in settigns like any other display. But the window stays on your laptop screen. In order to have your mouse work inside the gaming qube, you need to keep it within the window on your laptop's screen, then it shows on the external monitor also. This is why later we have to pass through a USB controller.
 
@@ -71,7 +75,7 @@ Now you need to enter in the IP, netmask, and gateway. Then enter the two DNS ad
 ![Gnome Netowrk Settings Example](https://github.com/david-cant-code/Framework-16-QubesOS-Gaming-GPU-Passthrough-Guide/blob/main/pictures/Screenshot%20From%202025-08-17%2016-57-29.png)
 
 
-Now, from here you have a working HVM that has your GPU and can game. I am able to play Helldivers 2 with 5 vCPU passthrough, 24 GB RAM, and of course the GPU.
+Now, from here you have a working HVM that has your GPU and can game. I am able to play Helldivers 2 with 6 vCPU passthrough, 12 GB RAM, and of course the GPU.
 
 ![NVTOP showing GPU info](https://github.com/david-cant-code/Framework-16-QubesOS-Gaming-GPU-Passthrough-Guide/blob/main/pictures/Screenshot%20From%202025-08-17%2016-27-11.png)
 
